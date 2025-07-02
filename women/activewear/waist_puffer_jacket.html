@@ -20,10 +20,10 @@
                 siteSubsection: "Activewear",
                 server: "Geometrixx Clothiers Site"
             },
-            product: {
-                productID: "100240",
-                productName: "Tie-Waist Puffer Jacket"
-            },
+            product: [{
+                name: "100240",
+                SKU: "Tie-Waist Puffer Jacket"
+            }],
         };
          window.adobeDataLayer = window.adobeDataLayer || [];
         window.adobeDataLayer.push(digitalData);
@@ -279,12 +279,12 @@ Copyright &#169 1996-2016 Adobe Digital Learning Services. All Rights Reserved.
                         link: {
                             linkName: 'add to cart'
                         },
-                        product: {
-                            productID: "100240",
-                            productName: "Tie-Waist Puffer Jacket",
-                            productUnitPrice: "1849.99",
-                            productUnitsAdded: "1"
-                        }
+                        product: [{
+                            name: "100240",
+                            SKU: "Tie-Waist Puffer Jacket",
+                            priceTotal: 1849.99,
+                            quantity: 1
+                        }]
                     });
                     console.log("Adobe Data Layer push: add to cart");
                 });
