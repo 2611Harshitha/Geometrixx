@@ -13,20 +13,25 @@
     <script>
         var digitalData = digitalData || {};
         digitalData = {
+            event:"productView",
             page: {
                 pageName: "Women:Fine Apparel:Black Dress",
                 siteSection: "Women",
                 siteSubsection: "Fine Apparel",
                 server: "Geometrixx Clothiers Site"
             },
-            product: {
-                productID: "101340",
-                productName: "Black Dress"
-            },
+            product: [{
+                name: "101340",
+                SKU: "Black Dress"
+            }],
         };
+        window.adobeDataLayer = window.adobeDataLayer || [];
+        window.adobeDataLayer.push(digitalData);
+        </script>
+        <script src="https://assets.adobedtm.com/01296dd00565/a23f3e0e7ba2/launch-c186c2078dca-development.min.js" async></script>"
+            async></script>
+        </script>
     </script>
-
-
 
     <title>Geometrixx|Women|Fine Apparel|Black Dress</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -241,7 +246,34 @@ Copyright &#169 1996-2016 Adobe Digital Learning Services. All Rights Reserved.
     </script>
 
     <!--Place DTM footer above this-->
-
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const addToCartButton = document.querySelector("button.button");
+ 
+            if (addToCartButton) {
+                addToCartButton.addEventListener("click", function () {
+                    window.adobeDataLayer = window.adobeDataLayer || [];
+                    window.adobeDataLayer.push({
+                        event: 'addToCartClick',
+                        page: {
+                            pageName: "Women:Fine Apparel:Black Dress",
+                            siteSection: "Women",
+                        },
+                        link: {
+                            linkName: 'add to cart'
+                        },
+                        product: [{
+                            name: "101340",
+                            SKU: "Black Dress",
+                            priceTotal: 3290.00,
+                            quantity: 1
+                        }]
+                    });
+                    console.log("Adobe Data Layer push: add to cart");
+                });
+            }
+        });
+    </script>
 </body>
 
 </html>
