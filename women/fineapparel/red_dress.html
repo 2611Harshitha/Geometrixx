@@ -13,17 +13,24 @@
     <script>
         var digitalData = digitalData || {};
         digitalData = {
+            event:"productView",
             page: {
-                pageName: "",
+                pageName: "Women:Fine Apparel:Red Dress",
                 siteSection: "Women",
                 siteSubsection: "Fine Apparel",
                 server: "Geometrixx Clothiers Site"
             },
-            product: {
-                productID: "101341",
-                productName: "Red Dress"
-            },
+            product: [{
+                name: "101341",
+                SKU: "Red Dress"
+            }],
         };
+        window.adobeDataLayer = window.adobeDataLayer || [];
+        window.adobeDataLayer.push(digitalData);
+        </script>
+        <script src="https://assets.adobedtm.com/01296dd00565/a23f3e0e7ba2/launch-c186c2078dca-development.min.js" async></script>"
+            async></script>
+        </script>
     </script>
 
 
@@ -240,7 +247,34 @@ Copyright &#169 1996-2016 Adobe Digital Learning Services. All Rights Reserved.
     </script>
 
     <!--Place DTM footer above this-->
-
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const addToCartButton = document.querySelector("button.button");
+ 
+            if (addToCartButton) {
+                addToCartButton.addEventListener("click", function () {
+                    window.adobeDataLayer = window.adobeDataLayer || [];
+                    window.adobeDataLayer.push({
+                        event: 'addToCartClick',
+                        page: {
+                            pageName: "Women:Fine Apparel:Red Dress",
+                            siteSection: "Women",
+                        },
+                        link: {
+                            linkName: 'add to cart'
+                        },
+                        product: [{
+                            name: "101341",
+                            SKU: "Red Dress",
+                            priceTotal: 4720.00,
+                            quantity: 1
+                        }]
+                    });
+                    console.log("Adobe Data Layer push: add to cart");
+                });
+            }
+        });
+    </script>
 </body>
 
 </html>
