@@ -270,7 +270,58 @@ Copyright &#169 1996-2016 Adobe Digital Learning Services. All Rights Reserved.
     </script>
 
     <!--Place DTM footer above this-->
-
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const checkoutForm = document.querySelector("form[action='shipping1.html']");
+            const checkoutButton = checkoutForm.querySelector("input[type='submit']");
+ 
+            if (checkoutForm && checkoutButton) {
+                checkoutForm.addEventListener("submit", function (e) {
+                    e.preventDefault(); // Stop the default redirect for now
+ 
+                    // Fire Adobe Data Layer event
+                    window.adobeDataLayer = window.adobeDataLayer || [];
+                    window.adobeDataLayer.push({
+                        event: 'cartView',
+                        page: {
+                            pageName: 'Checkout:Shopping Cart',
+                            siteSection: 'Checkout'
+                        },
+                        link: {
+                            linkName: 'proceed to checkout'
+                        },
+                        product: [
+                            {
+                                name: "100240",
+                                SKU: "Tie-Waist Puffer Jacket",
+                                priceTotal: 1849.99,
+                                quantity: 1
+                            },
+                            {
+                                name: "101340",
+                                SKU: "Black Dress",
+                                priceTotal: 3290.00,
+                                quantity: 1
+                            },
+                            {
+                                name: "101341",
+                                SKU: "Red Dress",
+                                priceTotal: 4720.00,
+                                quantity: 1
+                            }
+                        ]
+                    });
+ 
+                    console.log("Adobe Data Layer push: proceed to checkout");
+ 
+                    // Delay before submitting to let Launch fire
+                    /*setTimeout(function () {
+                        checkoutForm.submit();
+                    }, 1000); // 1000ms delay — adjust if needed*/
+                });
+            }
+        });
+    </script>
 </body>
 
 </html>
