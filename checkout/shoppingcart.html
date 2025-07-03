@@ -19,6 +19,26 @@
                 siteSection: "Checkout",
                 server: "Geometrixx Clothiers Site"
             },
+            product: [
+                            {
+                                name: "100240",
+                                SKU: "Tie-Waist Puffer Jacket",
+                                priceTotal: 1849.99,
+                                quantity: 1
+                            },
+                            {
+                                name: "101340",
+                                SKU: "Black Dress",
+                                priceTotal: 3290.00,
+                                quantity: 1
+                            },
+                            {
+                                name: "101341",
+                                SKU: "Red Dress",
+                                priceTotal: 4720.00,
+                                quantity: 1
+                            }
+                        ]
         };
         window.adobeDataLayer = window.adobeDataLayer || [];
         window.adobeDataLayer.push(digitalData);
@@ -265,9 +285,6 @@ Copyright &#169 1996-2016 Adobe Digital Learning Services. All Rights Reserved.
 
     <!--Place DTM footer below this-->
 
-    <script type="text/javascript">
-        _satellite.pageBottom();
-    </script>
 
     <!--Place DTM footer above this-->
     <script>
@@ -282,10 +299,10 @@ Copyright &#169 1996-2016 Adobe Digital Learning Services. All Rights Reserved.
                     // Fire Adobe Data Layer event
                     window.adobeDataLayer = window.adobeDataLayer || [];
                     window.adobeDataLayer.push({
-                        event: 'cartView',
+                        event: 'checkout-click',
                         page: {
-                            pageName: 'Checkout:Shopping Cart',
-                            siteSection: 'Checkout'
+                            pageName: 'checkout',
+                            siteSection: 'order'
                         },
                         link: {
                             linkName: 'proceed to checkout'
@@ -313,6 +330,8 @@ Copyright &#169 1996-2016 Adobe Digital Learning Services. All Rights Reserved.
                     });
  
                     console.log("Adobe Data Layer push: proceed to checkout");
+
+                    window.location.href="./shipping1.html"
  
                     // Delay before submitting to let Launch fire
                     /*setTimeout(function () {
@@ -321,6 +340,11 @@ Copyright &#169 1996-2016 Adobe Digital Learning Services. All Rights Reserved.
                 });
             }
         });
+    </script>
+
+    
+    <script type="text/javascript">
+        _satellite.pageBottom();
     </script>
 </body>
 
