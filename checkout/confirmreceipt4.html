@@ -10,9 +10,13 @@
 
 
     <script>
+        var random9 = Math.floor(Math.random() * 900000000) + 100000000;
         var digitalData = digitalData || {};
         digitalData = {
             event:"purchase",
+            purchase: {
+                purchaseId : random9,
+            },
             page: {
                 pageName: "Checkout:Order Confirmation Step 4",
                 siteSection: "Checkout",
