@@ -12,12 +12,19 @@
     <script>
         var digitalData = digitalData || {};
         digitalData = {
+            event:"pageView",
             page: {
                 pageName: "Company:Newsletter Subscription Start",
                 siteSection: "Company",
                 server: "Geometrixx Clothiers Site"
             },
         };
+        window.adobeDataLayer = window.adobeDataLayer || [];
+        window.adobeDataLayer.push(digitalData);
+        </script>
+        <script src="https://assets.adobedtm.com/01296dd00565/a23f3e0e7ba2/launch-c186c2078dca-development.min.js" async></script>"
+            async></script>
+        </script>
     </script>
 
     <title>Geometrixx|Company|Newsletter Subscription Start</title>
@@ -309,7 +316,7 @@ Sign Up for our the Geometrixx Newsletter!
                                     <td>
                                     </td>
                                     <td>
-                                        <input type="submit" value="Subscribe" class="button">
+                                        <input type="submit" id = "submitButton" value="Subscribe" class="button">
                                     </td>
                                 </tr>
 
@@ -341,6 +348,33 @@ Copyright &#169 1996-2016 Adobe Digital Learning Services. All Rights Reserved.
     <script type="text/javascript">
         _satellite.pageBottom();
     </script>
+
+<script>
+    document.getElementById("submitButton").addEventListener("click", function(event) {
+    // Prevent the form from submitting immediately
+    event.preventDefault();
+ 
+    // Gather checked newsletter types
+    const selected = Array.from(document.querySelectorAll('input[type="checkbox"]:checked'));
+    const newsletterList = selected.map(cb => ({ value: cb.nextSibling.textContent.trim() }));
+ 
+    // Push the ACDL event
+    window.adobeDataLayer = window.adobeDataLayer || [];
+    window.adobeDataLayer.push({
+      event: "newsletterSignup",
+      user: {
+        preferences: {
+          newsletterTypes: newsletterList
+        }
+      }
+    });
+ 
+    // Optional delay to let the event be captured, then submit the form
+    setTimeout(() => {
+      event.target.form.submit();
+    }, 300); // adjust delay if needed
+  });
+</script>
 
     <!--Place DTM footer above this-->
 
