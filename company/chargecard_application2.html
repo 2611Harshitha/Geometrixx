@@ -19,6 +19,12 @@
                 server: "Geometrixx Clothiers Site"
             },
         };
+        window.adobeDataLayer = window.adobeDataLayer || [];
+        window.adobeDataLayer.push(digitalData);
+        </script>
+        <script src="https://assets.adobedtm.com/01296dd00565/a23f3e0e7ba2/launch-c186c2078dca-development.min.js" async></script>"
+            async></script>
+        </script>
     </script>
 
 
@@ -611,7 +617,29 @@ Copyright &#169 1996-2016 Adobe Digital Learning Services. All Rights Reserved.
     </script>
 
     <!--Place DTM footer above this-->
-
+    <script>
+  document.getElementById("proceedButton").addEventListener("click", function (e) {
+    e.preventDefault(); // stop immediate navigation
+ 
+    var redirectUrl = this.getAttribute("data-href");
+ 
+    window.adobeDataLayer = window.adobeDataLayer || [];
+ 
+        adobeDataLayer.push({
+            event: "ccAppComplete",
+            page: {
+                pageName: "Company:Geo Charge Card Step 2",
+                siteSection: "Company",
+                server: "Geometrixx Clothiers Site"
+            },
+        });
+ 
+    // Wait ~500ms to ensure rule/tag fires, then redirect
+    setTimeout(function () {
+      window.location.href = redirectUrl;
+    }, 500);
+  });
+</script>
 </body>
 
 </html>
