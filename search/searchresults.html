@@ -28,6 +28,7 @@
     <script>
         var digitalData = digitalData || {};
         digitalData = {
+            event:"searchResults",
             page: {
                 pageName: "Search Results",
                 siteSection: "Search Results",
@@ -36,6 +37,12 @@
                 searchTerm: searchTerm
             },
         };
+        window.adobeDataLayer = window.adobeDataLayer || [];
+        window.adobeDataLayer.push(digitalData);
+        </script>
+        <script src="https://assets.adobedtm.com/01296dd00565/a23f3e0e7ba2/launch-c186c2078dca-development.min.js" async></script>"
+            async></script>
+        </script>
     </script>
 
 
